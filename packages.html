@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- 
+  Project: Esports Arena Web Application - All Packages Hub Screen
+  Reference (Harvard Anglia): 
+  - Google Gemini, 2026.
+  - W3C, 2024. CSS Grid Layout Module Level 1.
+             [online] Available at: <https://www.w3.org/TR/css-grid-1/>.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages & Experiences - Esports Arena</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="_image-assets/logo.jpeg" alt="Logo" class="logo-img">
+            <span class="logo-text">NEXT LEVEL GAMING ARENA</span>
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <div class="dropdown" tabindex="0">
+                <a href="packages.html" class="dropdown-link active">Packages ▼</a>
+                <div class="dropdown-content">
+                    <a href="packages.html">📦 All Packages</a>
+                    <a href="ultimate-gamer.html">Ultimate Gamer Pass</a>
+                    <a href="vip-gaming.html">VIP Gaming Experience</a>
+                    <a href="esports-training.html">Esports Training Package</a>
+                    <a href="birthday-party.html">Birthday Party Package</a>
+                    <a href="vr-experience.html">Virtual Reality Experience</a>
+                    <a href="racing-sim.html">Racing Simulator Challenge</a>
+                    <a href="escape-room.html">Escape Room Challenge</a>
+                </div>
+            </div>
+            <a href="calculate-fees.html">Calculate Fees</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="calculate-fees.html" class="btn-book-station">Book Station</a>
+    </header>
+
+    <main>
+        <h1 class="page-title">Packages & Experiences</h1>
+        <p class="subtitle">Select the ultimate plan. From hourly casual passes to full high-fidelity squad combat tiers, pick your access option below.</p>
+
+        <div class="section-header">Gaming Packages</div>
+        <div class="cards-grid">
+            <!-- Ultimate Gamer Pass -->
+            <div class="card highlighted">
+                <div>
+                    <div class="card-img-wrapper">
+                        <img src="_image-assets/ultimate_gamer_pass.png" alt="Ultimate Gamer Pass" class="card-img">
+                    </div>
+                    <div class="card-title">Ultimate Gamer Pass</div>
+                    <div class="card-price">R1500</div>
+                    <ul class="card-features">
+                        <li>PC gaming</li>
+                        <li>Console gaming</li>
+                        <li>High-speed internet</li>
+                        <li>Snack voucher</li>
+                        <li>Tournament entry</li>
+                    </ul>
+                </div>
+                <a href="ultimate-gamer.html" class="btn-card orange">Select Package</a>
+            </div>
+
+            <!-- VIP Gaming Experience -->
+            <div class="card highlighted">
+                <div>
+                    <div class="card-img-wrapper">
+                        <img src="_image-assets/vip_gaming_experience.png" alt="VIP Gaming Experience" class="card-img">
+                    </div>
+                    <div class="card-title">VIP Gaming Experience</div>
+                    <div class="card-price">R1500</div>
+                    <ul class="card-features">
+                        <li>Private gaming booth</li>
+                        <li>Premium equipment</li>
+                        <li>Food and drinks</li>
+                        <li>Priority booking</li>
+                        <li>Personal assistant</li>
+                    </ul>
+                </div>
+                <a href="vip-gaming.html" class="btn-card purple">Select Package</a>
+            </div>
+
+            <!-- Esports Training Package -->
+            <div class="card highlighted">
+                <div>
+                    <div class="card-img-wrapper">
+                        <img src="_image-assets/e-sport_training.png" alt="Esports Training Package" class="card-img">
+                    </div>
+                    <div class="card-title">Esports Training Package</div>
+                    <div class="card-price">R1500</div>
+                    <ul class="card-features">
+                        <li>Strategy coaching</li>
+                        <li>Team communication</li>
+                        <li>Match analysis</li>
+                        <li>Practice sessions</li>
+                        <li>Performance feedback</li>
+                    </ul>
+                </div>
+                <a href="esports-training.html" class="btn-card cyan">Select Package</a>
+            </div>
+
+            <!-- Birthday Party Package -->
+            <div class="card highlighted">
+                <div>
+                    <div class="card-img-wrapper">
+                        <img src="_image-assets/birthday_party_package.png" alt="Birthday Party Package" class="card-img">
+                    </div>
+                    <div class="card-title">Birthday Party Package</div>
+                    <div class="card-price">R1500</div>
+                    <ul class="card-features">
+                        <li>Reserved gaming area</li>
+                        <li>Multiplayer comps</li>
+                        <li>Party decorations</li>
+                        <li>Catering</li>
+                        <li>Tournament prizes</li>
+                    </ul>
+                </div>
+                <a href="birthday-party.html" class="btn-card orange">Select Package</a>
+            </div>
+        </div>
+
+        <div class="section-header">Individual Experiences</div>
+        <div class="cards-grid-3">
+            <div class="card highlighted">
+                <div>
+                    <div class="card-img-wrapper">
+                        <img src="_image-assets/vr_simulation_session.png" alt="VR Experience" class="card-img">
+                    </div>
+                    <div class="card-title">Virtual Reality Experience</div>
+                    <div class="card-price">R750</div>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 15px;">Explore immersive virtual reality games.</p>
+                </div>
+                <a href="vr-experience.html" class="btn-card cyan">Book Session</a>
+            </div>
+            <div class="card highlighted">
+                <div>
+                    <div class="card-img-wrapper">
+                        <img src="_image-assets/racing_rig_experience.png" alt="Racing Simulator" class="card-img">
+                    </div>
+                    <div class="card-title">Racing Simulator Challenge</div>
+                    <div class="card-price">R750</div>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 15px;">Race on professional driving simulators.</p>
+                </div>
+                <a href="racing-sim.html" class="btn-card purple">Book Session</a>
+            </div>
+            <div class="card highlighted">
+                <div>
+                    <div class="card-img-wrapper">
+                        <img src="_image-assets/escape_room_challenge.png" alt="Escape Room" class="card-img">
+                    </div>
+                    <div class="card-title">Escape Room Challenge</div>
+                    <div class="card-price">R750</div>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 15px;">Solve puzzles and escape before time runs out.</p>
+                </div>
+                <a href="escape-room.html" class="btn-card orange">Book Session</a>
+            </div>
+        </div>
+    </main>
+
+  <!-- Footer Component -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Esports Arena & Gaming Hub</h4>
+                <p>Experience Johannesburg's ultimate gaming ecosystem. Equipped with ultra-fast gigabit fibers, tournament-grade machines, immersive VR rigs, and pro simulator packages.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>📍 123 Main Street, Rosebank, Johannesburg</li>
+                    <li>📞 +27 (0) 11 123 4567</li>
+                    <li>✉️ info@nextlevelgaming.co.za</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-btn">FB</a>
+                    <a href="#" class="social-btn">X</a>
+                    <a href="#" class="social-btn">IG</a>
+                    <a href="#" class="social-btn">YT</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Gaming Arena. All rights reserved.</span>
+            <span>Johannesburg, South Africa</span>
+        </div>
+    </footer>
+<script src="_javascript/script.js" defer></script>
+</body>
+</html>

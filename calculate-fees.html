@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- 
+  Project: Esports Arena Web Application - Calculate Fees Screen
+  References (Harvard Anglia):
+  - Google Gemini, 2026. 
+  - World Wide Web Consortium (W3C), 2023. HTML5 Specification. [online] W3C. Available at: <https://www.w3.org/TR/html52/>.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Fees - Esports Arena</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Main Navigation Header with Pure CSS Dropdown -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="_image-assets/logo.jpeg" alt="Logo" class="logo-img">
+            <span class="logo-text">NEXT LEVEL GAMING ARENA</span>
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <div class="dropdown" tabindex="0">
+                <a href="packages.html" class="dropdown-link">Packages ▼</a>
+                <div class="dropdown-content">
+                    <a href="packages.html">📦 All Packages</a>
+                    <a href="ultimate-gamer.html">Ultimate Gamer Pass</a>
+                    <a href="vip-gaming.html">VIP Gaming Experience</a>
+                    <a href="esports-training.html">Esports Training Package</a>
+                    <a href="birthday-party.html">Birthday Party Package</a>
+                    <a href="vr-experience.html">Virtual Reality Experience</a>
+                    <a href="racing-sim.html">Racing Simulator Challenge</a>
+                    <a href="escape-room.html">Escape Room Challenge</a>
+                </div>
+            </div>
+            <a href="calculate-fees.html" class="active">Calculate Fees</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="calculate-fees.html" class="btn-book-station">Book Station</a>
+    </header>
+
+    <!-- Main Form & Summary Container -->
+    <main>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <span>Calculate Fees</span>
+        </div>
+
+        <div class="badge-tag">Fee Estimator & Booking</div>
+        <h1 class="page-title">Calculate Your Booking Fees</h1>
+        <p class="subtitle">Enter your contact details, select your packages, and specify player counts below.</p>
+
+        <!-- Form Wrapper with ID for JavaScript Validation -->
+        <form id="booking-form" class="form-layout" action="contact.html" method="GET">
+            
+            <!-- Left Column: Contact Details First, then Package Selections, with Both Buttons at the Bottom -->
+            <div class="form-box">
+                
+                <!-- Contact Details Section (First) -->
+                <h3 style="margin-bottom: 15px;">Your Contact Details</h3>
+                
+                <div class="input-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="e.g. John Doe">
+                    <span id="err-full-name" class="inline-error" style="color: #ff4444; font-size: 0.75rem; display: none; margin-top: 4px; font-weight: 600;">⚠️ Full Name is required.</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="email-address">Email Address</label>
+                    <input type="email" id="email-address" name="email-address" placeholder="e.g. jordan@example.com">
+                    <span id="err-email-address" class="inline-error" style="color: #ff4444; font-size: 0.75rem; display: none; margin-top: 4px; font-weight: 600;">⚠️ Email Address is required.</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone-number">Phone Number (Numbers Only)</label>
+                    <input type="tel" id="phone-number" name="phone-number" placeholder="e.g. 0821234567">
+                    <span id="err-phone-number" class="inline-error" style="color: #ff4444; font-size: 0.75rem; display: none; margin-top: 4px; font-weight: 600;">⚠️ Phone Number is required.</span>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 30px;">
+                    <label for="booking-date">Booking Date (YYYY-MM-DD)</label>
+                    <input type="date" id="booking-date" name="booking-date">
+                    <span id="err-booking-date" class="inline-error" style="color: #ff4444; font-size: 0.75rem; display: none; margin-top: 4px; font-weight: 600;">⚠️ Booking Date is required.</span>
+                </div>
+
+                <!-- Package Selection Section (After Contact Details) -->
+                <h3 style="margin-bottom: 15px;">Select Packages & Player Counts</h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px; margin-bottom: 25px;">
+                    
+                    <!-- Package 1 -->
+                    <div class="package-row" data-name="Ultimate Gamer Pass" data-price="1500" style="background: var(--bg-input); padding: 15px; border: 1px solid var(--border-color); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong style="color: var(--text-main); font-size: 0.95rem; display: block; margin-bottom: 3px;">Ultimate Gamer Pass</strong>
+                            <span style="color: var(--accent-cyan); font-size: 0.85rem; font-weight: 700;">R1500 per person</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <label style="font-size: 0.75rem; color: var(--text-purple); text-transform: uppercase;">Players:</label>
+                            <input type="number" min="0" value="0" class="player-input" style="width: 70px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px; color: var(--text-main); text-align: center;">
+                        </div>
+                    </div>
+
+                    <!-- Package 2 -->
+                    <div class="package-row" data-name="VIP Gaming Experience" data-price="1500" style="background: var(--bg-input); padding: 15px; border: 1px solid var(--border-color); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong style="color: var(--text-main); font-size: 0.95rem; display: block; margin-bottom: 3px;">VIP Gaming Experience</strong>
+                            <span style="color: var(--accent-cyan); font-size: 0.85rem; font-weight: 700;">R1500 per person</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <label style="font-size: 0.75rem; color: var(--text-purple); text-transform: uppercase;">Players:</label>
+                            <input type="number" min="0" value="0" class="player-input" style="width: 70px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px; color: var(--text-main); text-align: center;">
+                        </div>
+                    </div>
+
+                    <!-- Package 3 -->
+                    <div class="package-row" data-name="Esports Training Package" data-price="1500" style="background: var(--bg-input); padding: 15px; border: 1px solid var(--border-color); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong style="color: var(--text-main); font-size: 0.95rem; display: block; margin-bottom: 3px;">Esports Training Package</strong>
+                            <span style="color: var(--accent-cyan); font-size: 0.85rem; font-weight: 700;">R1500 per person</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <label style="font-size: 0.75rem; color: var(--text-purple); text-transform: uppercase;">Players:</label>
+                            <input type="number" min="0" value="0" class="player-input" style="width: 70px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px; color: var(--text-main); text-align: center;">
+                        </div>
+                    </div>
+
+                    <!-- Package 4 -->
+                    <div class="package-row" data-name="Birthday Party Package" data-price="1500" style="background: var(--bg-input); padding: 15px; border: 1px solid var(--border-color); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong style="color: var(--text-main); font-size: 0.95rem; display: block; margin-bottom: 3px;">Birthday Party Package</strong>
+                            <span style="color: var(--accent-cyan); font-size: 0.85rem; font-weight: 700;">R1500 per person</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <label style="font-size: 0.75rem; color: var(--text-purple); text-transform: uppercase;">Players:</label>
+                            <input type="number" min="0" value="0" class="player-input" style="width: 70px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px; color: var(--text-main); text-align: center;">
+                        </div>
+                    </div>
+
+                    <!-- Package 5 -->
+                    <div class="package-row" data-name="Virtual Reality Experience" data-price="750" style="background: var(--bg-input); padding: 15px; border: 1px solid var(--border-color); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong style="color: var(--text-main); font-size: 0.95rem; display: block; margin-bottom: 3px;">Virtual Reality Experience</strong>
+                            <span style="color: var(--accent-cyan); font-size: 0.85rem; font-weight: 700;">R750 per person</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <label style="font-size: 0.75rem; color: var(--text-purple); text-transform: uppercase;">Players:</label>
+                            <input type="number" min="0" value="0" class="player-input" style="width: 70px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px; color: var(--text-main); text-align: center;">
+                        </div>
+                    </div>
+
+                    <!-- Package 6 -->
+                    <div class="package-row" data-name="Racing Simulator Challenge" data-price="750" style="background: var(--bg-input); padding: 15px; border: 1px solid var(--border-color); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong style="color: var(--text-main); font-size: 0.95rem; display: block; margin-bottom: 3px;">Racing Simulator Challenge</strong>
+                            <span style="color: var(--accent-cyan); font-size: 0.85rem; font-weight: 700;">R750 per person</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <label style="font-size: 0.75rem; color: var(--text-purple); text-transform: uppercase;">Players:</label>
+                            <input type="number" min="0" value="0" class="player-input" style="width: 70px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px; color: var(--text-main); text-align: center;">
+                        </div>
+                    </div>
+
+                    <!-- Package 7 -->
+                    <div class="package-row" data-name="Escape Room Challenge" data-price="750" style="background: var(--bg-input); padding: 15px; border: 1px solid var(--border-color); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong style="color: var(--text-main); font-size: 0.95rem; display: block; margin-bottom: 3px;">Escape Room Challenge</strong>
+                            <span style="color: var(--accent-cyan); font-size: 0.85rem; font-weight: 700;">R750 per person</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <label style="font-size: 0.75rem; color: var(--text-purple); text-transform: uppercase;">Players:</label>
+                            <input type="number" min="0" value="0" class="player-input" style="width: 70px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px; color: var(--text-main); text-align: center;">
+                        </div>
+                    </div>
+
+                </div>
+                <span id="err-packages" class="inline-error" style="color: #ff4444; font-size: 0.75rem; display: none; margin-bottom: 15px; font-weight: 600;">⚠️ Please select at least one player across the packages.</span>
+
+                <!-- Both Buttons at the Bottom of the Left Card -->
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
+                    <button type="button" id="calculate-btn" class="btn-card cyan" style="width: 100%; padding: 12px; font-size: 0.95rem; text-align: center; cursor: pointer;">CALCULATE FEE</button>
+                    <button type="submit" class="btn-primary-orange" style="width: 100%; padding: 12px; text-align: center; box-sizing: border-box; cursor: pointer; border: none;">SUBMIT BOOKING</button>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Summary Box with Multi-Package Container -->
+            <div class="summary-box">
+                <h3>FEE ESTIMATION SUMMARY</h3>
+                <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-purple); margin-bottom: 10px; text-transform: uppercase;">Esports Team Discounts</div>
+                <table class="discount-table">
+                    <tr><td>1 - 3 Players</td><td>0%</td></tr>
+                    <tr style="background: rgba(0, 240, 255, 0.05);"><td>4 - 7 Players</td><td>5%</td></tr>
+                    <tr style="background: rgba(0, 240, 255, 0.1);"><td>8+ Players</td><td>10%</td></tr>
+                </table>
+
+                <!-- Dynamic Multi-Package Listing Container -->
+                <div style="margin-bottom: 15px;">
+                    <span style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">Selected Packages:</span>
+                    <div id="summary-packages-list" style="display: flex; flex-direction: column; gap: 6px;">
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">No packages selected yet.</span>
+                    </div>
+                </div>
+
+                <div class="summary-row">
+                    <span>Total Players:</span>
+                    <span id="summary-players">0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Base Price:</span>
+                    <span id="summary-base">R0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Discount Applied:</span>
+                    <span id="summary-discount">R0.00 (0%)</span>
+                </div>
+
+                <div class="summary-total">
+                    <span>Estimated Total</span>
+                    <span id="summary-total">R0.00</span>
+                </div>
+            </div>
+
+        </form>
+    </main>
+
+    <!-- Footer Component -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Esports Arena & Gaming Hub</h4>
+                <p>Experience Johannesburg's ultimate gaming ecosystem. Equipped with ultra-fast gigabit fibers, tournament-grade machines, immersive VR rigs, and pro simulator packages.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>📍 123 Main Street, Rosebank, Johannesburg</li>
+                    <li>📞 +27 (0) 11 123 4567</li>
+                    <li>✉️ info@nextlevelgaming.co.za</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-btn">FB</a>
+                    <a href="#" class="social-btn">X</a>
+                    <a href="#" class="social-btn">IG</a>
+                    <a href="#" class="social-btn">YT</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>©️ 2026 Gaming Arena. All rights reserved.</span>
+            <span>Johannesburg, South Africa</span>
+        </div>
+    </footer>
+
+    <script src="_javascript/script.js" defer></script>
+</body>
+</html>

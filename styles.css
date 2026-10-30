@@ -1,0 +1,1078 @@
+/* ==========================================================================
+   NEXT LEVEL GAMING & ESPORTS ARENA - STYLESHEET
+   Author: Development Team
+   Styling Architecture & Standards: W3C CSS Specifications
+   
+   References (Harvard Anglia):
+   - Coyier, C., 2026. A Complete Guide to Flexbox [online]. CSS-Tricks. Available from: css-tricks.com [Accessed 27 October 2026].
+   - Google Gemini, 2026.
+   - Meyer, E., 2011. CSS Reset & Standard Universal Box Sizing. [online] 
+     Meyerweb. Available at: <https://meyerweb.com/eric/tools/css/reset/>.
+   - Mozilla Developer Network (MDN), 2025. CSS Menu Techniques without JS. [online] 
+     MDN Web Docs. Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Dropdown_menu>.
+   - World Wide Web Consortium (W3C), 2024. CSS Custom Properties Module Level 1. [online] 
+     W3C. Available at: <https://www.w3.org/TR/css-variables-1/>.
+   ========================================================================== */
+
+/* 1. GLOBAL COLORS & VARIABLES */
+:root {
+    --bg-main: #0a0c10;
+    --bg-card: #121620;
+    --bg-input: #0e121a;
+    --accent-orange: #ff6000;
+    --accent-cyan: #00f0ff;
+    --accent-purple: #b000ff;
+    --accent-blue: #09b3e2;
+    --text-main: #ffffff;
+    --text-muted: #8b9bb4;
+    --text-purple: #c084fc;
+    --border-color: #1e2638;
+}
+
+/* 2. BASIC RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+   background-color: var(--bg-main);
+    background-image: url('_image-assets/main-background.avif'); /* Path to your image */
+    background-size: cover;          /* Stretches the image to cover the full screen */
+    background-position: center;     /* Centers the image */
+    background-repeat: no-repeat;    /* Prevents the image from repeating */
+    background-attachment: fixed;    /* Keeps background still while scrolling */
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. HEADER & NAVIGATION */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    /* diagonal gradient blending pitch black, electric neon blue, and deep vibrant purple */
+    background: linear-gradient(135deg, #0a0c10 0%, #0d1b3e 50%, #2a0845 100%);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-purple);
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(176, 0, 255, 0.6);
+}
+
+.logo-text {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+/* 4. PURE CSS DROPDOWN MENU (No JavaScript) */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-link {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--bg-card);
+    min-width: 240px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: var(--text-muted);
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(0, 240, 255, 0.08);
+    color: var(--accent-cyan);
+}
+
+.btn-book-station {
+    background-color: var(--accent-orange);
+    color: var(--text-main);
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(255, 96, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-book-station:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 96, 0, 0.6);
+}
+
+/* 5. MAIN CONTENT & GLOWING BADGE PILLS */
+main {
+    flex: 1;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 20px;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* FADE-IN ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 1;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.breadcrumb {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.breadcrumb a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+}
+
+.badge-tag {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid var(--accent-cyan);
+    border-radius: 30px;
+    color: var(--accent-cyan);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    background: rgba(0, 240, 255, 0.05);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+    transition: all 0.3s ease;
+}
+
+.badge-tag:hover {
+    background: rgba(0, 240, 255, 0.12);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+}
+
+.page-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: var(--text-purple);
+    font-size: 1rem;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.section-header {
+    color: var(--accent-cyan);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    margin-top: 50px;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+/* 6. GRID LAYOUTS & INTERACTIVE CARDS */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.cards-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 8px 25px rgba(0, 240, 255, 0.2);
+}
+
+.card-img-wrapper {
+    width: 100%;
+    height: 140px;
+    background-color: #06080d;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img {
+    transform: scale(1.05);
+}
+
+.card.highlighted {
+    border: 1px solid var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.18);
+}
+
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.card-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.card-features {
+    list-style: none;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.card-features li {
+    margin-bottom: 6px;
+}
+
+/* Card Button Glow Themes */
+.btn-card {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: all 0.25s ease;
+}
+
+.btn-card:hover {
+    background-color: var(--accent-blue);
+    color: var(--bg-main);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.btn-card.purple {
+    background-color: var(--accent-purple);
+    border-color: var(--accent-purple);
+}
+.btn-card.purple:hover {
+    background-color: #9300d3;
+    box-shadow: 0 0 15px rgba(176, 0, 255, 0.6);
+}
+
+.btn-card.cyan {
+    background-color: var(--accent-cyan);
+    color: var(--bg-main);
+    border-color: var(--accent-cyan);
+    font-weight: 700;
+}
+.btn-card.cyan:hover {
+    background-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+}
+
+.btn-card.orange {
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    font-weight: 700;
+}
+.btn-card.orange:hover {
+    background-color: #e05500;
+    box-shadow: 0 0 15px rgba(255, 96, 0, 0.6);
+}
+
+/* 7. DETAIL PAGES & INTERACTIVE VISUAL BOXES */
+.detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.check-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.check-list li {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.check-list li svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--accent-cyan);
+}
+
+.btn-primary-orange {
+    background-color: var(--accent-orange);
+    color: var(--text-main);
+    border: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(255, 96, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary-orange:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 96, 0, 0.6);
+}
+
+.fine-print {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 15px;
+}
+
+.visual-box {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    border: 2px solid var(--accent-cyan);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
+    overflow: hidden;
+    background-color: #121620;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.visual-box:hover {
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.45);
+}
+
+.visual-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.visual-box:hover img {
+    transform: scale(1.02);
+}
+
+.visual-box img.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 8. FORMS & TABLES */
+.form-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.form-box, .summary-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 35px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-box:hover, .summary-box:hover {
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-purple);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.input-group input, .input-group textarea, .input-group select {
+    width: 100%;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 12px 15px;
+    color: var(--text-main);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input:focus, .input-group textarea:focus, .input-group select:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.discount-table {
+    width: 100%;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+    border-collapse: collapse;
+}
+
+.discount-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+.discount-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    color: var(--text-muted);
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+/* 9. FOOTER & SOCIAL BOXES */
+footer {
+    background-color: #06080d;
+    border-top: 1px solid var(--border-color);
+    padding: 50px 60px 30px 60px;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+  color: var(--accent-cyan);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.footer-col p, .footer-col ul li {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Styled Social Media Boxes with Glow Effects */
+.social-btn {
+    width: 36px;
+    height: 36px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.social-btn:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+
+/* ============================================================
+   COMPREHENSIVE RESPONSIVE DESIGN 
+   ============================================================ */
+@media screen and (max-width: 768px) {
+
+   /*  GLOBAL HORIZONTAL SCROLL  */
+   html, body {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      box-sizing: border-box;
+   }
+
+   /* VERTICAL NAVIGATION HEADER STACK */
+   /* Forces the container to stack vertically instead of side-by-side */
+   header, 
+   header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      text-align: center;
+      width: 100%;
+      padding: 15px 10px;
+      box-sizing: border-box;
+   }
+
+   
+   .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+   }
+
+   .logo-img {
+      width: 85px;
+      height: 85px;
+      margin: 0 auto;
+   }
+
+   .logo-text {
+      font-size: 22px;
+      text-align: center;
+      display: block;
+      width: 100%;
+   }
+
+   
+   nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+   }
+
+   nav a, 
+   .dropdown-link {
+      display: block;
+      width: 100%;
+      padding: 12px 0;
+      text-align: center;
+      box-sizing: border-box;
+   }
+
+   /* Forces the isolated Book Station anchor button to center cleanly at the base */
+   header a[class*="book"],
+   header a[class*="station"],
+   .btn-book-station {
+      display: block;
+      width: 100%;
+      max-width: 280px;
+      margin: 15px auto 0 auto;
+      text-align: center;
+      box-sizing: border-box;
+   }
+
+   /* COLLAPSIBLE DROPDOWN ACCORDION SYSTEM */
+   .dropdown {
+      width: 100%;
+      position: relative;
+   }
+
+   /* Hides the long dropdown item box from view by default on mobile */
+   .dropdown .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(180deg, #0e0b16 0%, #171226 100%);
+      border: 1px solid #00e5ff; 
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
+      z-index: 200;
+      padding: 5px 0;
+      box-sizing: border-box;
+   }
+
+   /* Interaction states to trigger the dropdown instantly on touch screen taps */
+   .dropdown:hover .dropdown-content,
+   .dropdown:focus-within .dropdown-content {
+      display: block;
+   }
+
+   
+   div.dropdown div.dropdown-content a {
+      display: block;
+      padding: 14px 16px;
+      color: #ffffff;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.1);
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+   }
+
+   /* THE HOVER COLOR FIX */
+   div.dropdown div.dropdown-content a:hover,
+   div.dropdown div.dropdown-content a:active,
+   div.dropdown div.dropdown-content a:focus {
+      background: rgba(0, 229, 255, 0.15);
+      color: #00e5ff;
+      font-weight: bold;
+      padding-left: 10px; 
+   }
+
+      /* HERO PICTURE & OUTLINE FIX  */
+   
+   /* Target the main parent containers holding the text and the visual-box */
+   main > div[style*="display: grid"],
+   main > div:first-of-type,
+   .visual-box-container,
+   div:has(> .visual-box) {
+      display: flex !important;
+      flex-direction: column !important; /* Forces vertical top-to-bottom layout stack */
+      align-items: center !important;
+      text-align: center !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      gap: 30px !important;
+      padding: 20px 16px !important;
+      box-sizing: border-box !important;
+   }
+
+   /* Target the left text column wrapper inside those containers */
+   main > div[style*="display: grid"] > div:first-child,
+   .visual-box-container > div:first-child {
+      width: 100% !important;
+      max-width: 100% !important;
+   }
+
+   /* Fix the action buttons container flex row on the homepage */
+   .visual-box-container div[style*="display: flex"] {
+      flex-direction: column !important;
+      align-items: center !important;
+      width: 100% !important;
+      gap: 12px !important;
+   }
+
+   .visual-box-container div[style*="display: flex"] a {
+      width: 100% !important;
+      max-width: 280px !important;
+      text-align: center !important;
+      margin: 0 auto !important;
+   }
+
+   /* Target the shared image container  */
+   
+   .visual-box,
+   div.visual-box[style*="height"] {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important; 
+      margin: 20px auto 0 auto !important;
+   }
+
+   
+   /* Gives images proportional space so they scale fully without cropping out edges */
+   .hero-img,
+   img.hero-img {
+      display: block !important;
+      width: 100% !important;
+      max-width: 440px !important; 
+      height: 280px !important; 
+      object-fit: cover !important; /* Centers and displays full graphical asset cleanly */
+      border-radius: 12px !important;
+      margin: 0 auto !important;
+   }
+
+      /* CARD READJUSTMENT*/
+
+   .cards-grid-3 {
+      display: flex;
+      flex-direction: column; 
+      gap: 25px; 
+      width: 100%;
+      max-width: 100%;
+      padding: 0 16px;
+      box-sizing: border-box;
+   }
+
+   /* Targets exact card elements to make them stretch wide across the screen */
+   .card,
+   .card.highlighted {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 0 15px 0;
+      box-sizing: border-box;
+   }
+   
+
+   .btn-card {
+      display: block;
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+      margin-top: 15px;
+   }
+
+      /*  GAMING PACKAGES MAIN GRID  */
+   
+   /*Targets exact packages layout container wrapper */
+   /* Converts the desktop row configuration into a single vertical stacked column */
+   main div.cards-grid,
+   .cards-grid {
+      display: flex;
+      flex-direction: column; 
+      gap: 30px;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 16px;
+      box-sizing: border-box;
+   }
+
+   /* Targets individual package cards to stretch fully across the device view width */
+   main div.cards-grid div.card.highlighted,
+   .cards-grid .card {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 0 15px 0;
+      box-sizing: border-box;
+   }
+
+   /* Ensures card component graphics scale naturally without compression layout shifts */
+   .card-img-wrapper,
+   .card-img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+   }
+
+   /* Formatting adjustments for card descriptions and bullet feature list arrays */
+   .card-features, 
+   ul.card-features {
+      list-style: none;
+      padding: 0;
+      margin: 15px auto;
+      width: 100%;
+      text-align: center;
+   }
+
+   .card-features li {
+      padding: 6px 0;
+      width: 100%;
+   }
+
+   /* Clean responsive width balancing for the primary card link selection button anchors */
+   .cards-grid .card a.btn-card,
+   .cards-grid .card .btn-card {
+      display: block;
+      width: 100%;
+      max-width: 280px;
+      margin: 20px auto 0 auto;
+      text-align: center;
+      box-sizing: border-box;
+   }
+
+    
+     /*  CALCULATE FEES FORM & SUMMARY RESPONSIVE  */
+   main #booking-form.form-layout,
+   main .form-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 16px;
+      box-sizing: border-box;
+   }
+
+   main .form-layout .form-box {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      box-sizing: border-box;
+   }
+
+   main .form-layout > div:last-child,
+   main .form-layout .fee-summary-box { 
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+   }
+
+   main .form-box .package-row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      width: 100%;
+      padding: 15px;
+      box-sizing: border-box;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+   }
+
+   main .form-box .package-row div[style*="display: flex"] {
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   main .form-box .input-group input,
+   main .form-box .input-group select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+   }
+
+  /* INDEPENDENT GRID-CHILD COLUMNS REST */
+
+/* 
+   Targets every main structural child content box inside your contact form grid layout.
+   Forces them to expand across all three tracks to form clean vertical stack lines.
+*/
+html body main form#contact-form.form-layout > div,
+html body main form#contact-form.form-layout .form-box {
+   grid-column: 1 / -1; /* Tells the box to stretch completely from edge to edge */
+   width: 100%;
+   box-sizing: border-box;
+}
+
+/* Restores a uniform vertical margin gap separator space between the cards */
+html body main form#contact-form.form-layout {
+   row-gap: 35px;
+}
+
+/* Aligns text area fields and inputs inside the containers nicely */
+html body main form#contact-form.form-layout .input-group input,
+html body main form#contact-form.form-layout .input-group textarea {
+   width: 100%;
+   box-sizing: border-box;
+   padding: 12px;
+}
+
+/* Clean width balance adjustment for the map display panel at the bottom */
+html body main form#contact-form.form-layout #map-container.visual-box {
+   width: 100%;
+   height: 300px; /* Reduces the extreme desktop 480px height for phone viewports */
+   box-sizing: border-box;
+}
+
+
+/*  FOOTER  */
+
+/* 
+   Transforms the horizontal footer content row into a clean, 
+   sequentially centered vertical layout stack.
+*/
+html body footer .footer-content {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   gap: 35px; /* Clean spacing between stacked column sections */
+   padding: 40px 16px;
+   width: 100%;
+   box-sizing: border-box;
+}
+
+/* Forces each information card column block to take full width */
+html body footer .footer-content .footer-col {
+   width: 100%;
+   max-width: 100%;
+   margin: 0;
+}
+
+/* Wipes out any bullet points and centers the nested contact details */
+html body footer .footer-content .footer-col ul {
+   list-style: none;
+   padding: 0;
+   margin: 12px 0 0 0;
+}
+
+html body footer .footer-content .footer-col li {
+   padding: 6px 0;
+   font-size: 15px;
+}
+
+/* Keeps your social network media target buttons grouped in the center */
+html body footer .footer-content .footer-col .social-icons {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 15px;
+   margin-top: 15px;
+}
+
+/* 
+   Stacks the copyright notice text and the geographic location label 
+   centrally at the absolute base of the page.
+*/
+html body footer .footer-bottom {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   gap: 10px;
+   padding: 20px 16px;
+   border-top: 1px solid rgba(255, 255, 255, 0.05); /* Soft divider border line */
+}
+
+html body footer .footer-bottom span {
+   display: block;
+   width: 100%;
+   margin: 0;
+}
+
+}
